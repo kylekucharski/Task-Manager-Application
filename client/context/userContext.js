@@ -50,7 +50,7 @@ export const UserContextProvider = ({ children }) => {
       router.push("/login");
     } catch (error) {
       console.log("Error registering user", error);
-      toast.error(error.response?.data?.message || "An error occurred");
+      toast.error(error.response.data.message);
     }
   };
 
@@ -84,7 +84,7 @@ export const UserContextProvider = ({ children }) => {
       router.push("/");
     } catch (error) {
       console.log("Error logging in user", error);
-      error.response?.data?.message
+      toast.error(error.response.data.message);
     }
   };
 
@@ -123,7 +123,7 @@ export const UserContextProvider = ({ children }) => {
       router.push("/login");
     } catch (error) {
       console.log("Error logging out user", error);
-      error.response?.data?.message
+      toast.error(error.response.data.message);
     }
   };
 
@@ -146,7 +146,7 @@ export const UserContextProvider = ({ children }) => {
     } catch (error) {
       console.log("Error getting user details", error);
       setLoading(false);
-      error.response?.data?.message
+      toast.error(error.response.data.message);
     }
   };
 
@@ -174,7 +174,7 @@ export const UserContextProvider = ({ children }) => {
     } catch (error) {
       console.log("Error updating user details", error);
       setLoading(false);
-      error.response?.data?.message
+      toast.error(error.response.data.message);
     }
   };
 
@@ -195,7 +195,7 @@ export const UserContextProvider = ({ children }) => {
     } catch (error) {
       console.log("Error sending email verification", error);
       setLoading(false);
-      error.response?.data?.message
+      toast.error(error.response.data.message);
     }
   };
 
