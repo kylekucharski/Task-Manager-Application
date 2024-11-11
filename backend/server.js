@@ -14,12 +14,22 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 // middleware
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
-  })
-);
+const allowedOrigins = [
+  'https://task-manager-application-git-main-kylekucharskis-projects.vercel.app',
+  'https://task-manager-application-sand.vercel.app',
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
