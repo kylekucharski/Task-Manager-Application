@@ -17,19 +17,11 @@ const app = express();
 // Parse allowed origins from environment with fallback
 const allowedOrigins = process.env.CLIENT_URLS ? process.env.CLIENT_URLS.split(',') : [];
 
-// CORS middleware
+// middleware
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (e.g., mobile apps or curl requests)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        console.error(`Blocked by CORS: ${origin}`);
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true, // If cookies or credentials need to be sent
+    origin: process.env.CLIENT_URL,
+    credentials: true,
   })
 );
 
