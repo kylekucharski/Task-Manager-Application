@@ -14,8 +14,8 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 // middleware
-// Parse allowed origins from environment
-const allowedOrigins = process.env.CLIENT_URLS.split(',');
+// Parse allowed origins from environment with fallback
+const allowedOrigins = process.env.CLIENT_URLS ? process.env.CLIENT_URLS.split(',') : [];
 
 // CORS middleware
 app.use(
@@ -25,6 +25,7 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.error(`Blocked by CORS: ${origin}`);
         callback(new Error("Not allowed by CORS"));
       }
     },
