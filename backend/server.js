@@ -14,12 +14,24 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 // middleware
+// Parse allowed origins from environment
+const allowedOrigins = process.env.CLIENT_URLS.split(',');
+
+// CORS middleware
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
+    origin: function (origin, callback) {
+      // Allow requests with no origin (e.g., mobile apps or curl requests)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // If cookies or credentials need to be sent
   })
 );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
