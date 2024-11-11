@@ -14,10 +14,6 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 // middleware
-// Parse allowed origins from environment with fallback
-const allowedOrigins = process.env.CLIENT_URLS ? process.env.CLIENT_URLS.split(',') : [];
-
-// middleware
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
