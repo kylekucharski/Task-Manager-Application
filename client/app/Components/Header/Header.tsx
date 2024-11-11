@@ -1,10 +1,11 @@
 "use client";
+import { github, moon, profile } from "@/utils/Icons";
 import { useTasks } from "@/context/taskContext";
 import { useUserContext } from "@/context/userContext";
-import { github, moon, profile } from "@/utils/Icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
+
 
 function Header() {
   const { user } = useUserContext();
@@ -56,7 +57,7 @@ function Header() {
 
         <div className="flex gap-4 items-center">
           <Link
-            href="https://github.com/Maclinz/taskfyer"
+            href="https://github.com/kylekucharski/Task-Manager-Application"
             passHref
             target="_blank"
             rel="noopener noreferrer"
@@ -65,7 +66,7 @@ function Header() {
             {github}
           </Link>
           <Link
-            href="https://github.com/Maclinz/taskfyer"
+            href="https://github.com/kylekucharski/Task-Manager-Application"
             passHref
             target="_blank"
             rel="noopener noreferrer"
@@ -74,7 +75,7 @@ function Header() {
             {moon}
           </Link>
           <Link
-            href="https://github.com/Maclinz/taskfyer"
+            href="https://github.com/kylekucharski/Task-Manager-Application"
             passHref
             target="_blank"
             rel="noopener noreferrer"

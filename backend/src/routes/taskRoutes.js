@@ -1,12 +1,12 @@
-import express from 'express';
+import express from "express";
 import {
-    createTask,
-    getTasks,
-    getTask,
-    updateTask,
-    deleteTask,
+  createTask,
+  deleteTask,
+  getTask,
+  getTasks,
+  updateTask,
 } from "../controllers/task/taskController.js";
-import {protect} from "../middleware/authMiddleware.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -15,6 +15,5 @@ router.get("/tasks", protect, getTasks);
 router.get("/task/:id", protect, getTask);
 router.patch("/task/:id", protect, updateTask);
 router.delete("/task/:id", protect, deleteTask);
-
 
 export default router;
