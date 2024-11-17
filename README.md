@@ -57,27 +57,6 @@ The Task Manager Application is a full-stack web application designed to simplif
 
 5. Access the application: The server will start on `http://localhost:3000`.
 
-## Project Structure
-
-```plaintext
-Task-Manager-Application
-├── backend
-│   ├── src
-│   │   ├── controllers    # Controller functions
-│   │   ├── middleware     # Middleware for authentication, error handling
-│   │   ├── models         # Mongoose schemas
-│   │   ├── routes         # API endpoints
-│   │   └── utils          # Utility functions
-│   └── server.js          # Entry point for the backend server
-└── client
-    ├── src
-    │   ├── components     # React components
-    │   ├── context        # Context API for state management
-    │   ├── pages          # Main app pages
-    │   └── styles         # CSS and styling files
-    └── App.js             # Main entry for the React application
-```
-
 ## Key Functionalities
 
 - **Secure User Authentication**: Uses JSON Web Tokens and bcrypt for secure login and registration.
