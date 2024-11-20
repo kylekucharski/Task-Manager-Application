@@ -31,7 +31,7 @@ The Task Manager Application is a full-stack web application designed to simplif
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/Task-Manager-Application.git
+    git clone https://github.com/kylekucharski/Task-Manager-Application.git
     cd Task-Manager-Application
     ```
 
